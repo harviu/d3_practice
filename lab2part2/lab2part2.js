@@ -56,6 +56,7 @@ function drawMap(drawType){
         .fitExtent([[0,0],[width, height]],mapData);
     let pathGenerator = d3.geoPath()
         .projection(projection);
+    
     let map=d3.select('#mainSvg')
         .selectAll('path')
         .data(mapData.features)
@@ -289,7 +290,6 @@ function drawMap(drawType){
         for(let i =0;i<num+1;i++){
             dd[i]=(max-min)*i/num+min;
         }
-        console.log(dd);
         
         let legendAxis= d3.axisBottom(d3.scaleLinear().domain([min,max]).range([0,num*40]))
             .ticks(num, "2s")
